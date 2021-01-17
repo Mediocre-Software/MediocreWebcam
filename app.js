@@ -7,27 +7,14 @@ const cameraView = document.querySelector("#camera--view"),
     cameraTrigger = document.querySelector("#camera--trigger")
 // Access the device camera and stream to cameraView
 function cameraStart() {
-    navigator.mediaDevices.getUserMedia(constraints).then(
-        function()success(stream) {
+    navigator.mediaDevices
+        .getUserMedia(constraints)
+        .then(function(stream) {
         track = stream.getTracks()[0];
         cameraView.srcObject = stream;
     })
-    .catch(function(err) {
-        //log to console first
-        console.log(err); /* handle the error */
-        if (err.name == "NotFoundError" || err.name =="DevicesNotFoundError") {
-            //required track is missing 
-        } else if (err.name == "NotReadableError" || err.name == "TrackStartError") {
-            //webcam or mic are already in use 
-        } else if (err.name == "OverconstrainedError" || err.name == "ConstraintNotSatisfiedError") {
-            //constraints can not be satisfied by avb. devices 
-        } else if (err.name == "NotAllowedError" || err.name == "PermissionDeniedError") {
-            //permission denied in browser 
-        } else if (err.name == "TypeError" || err.name == "TypeError") {
-            //empty constraints object 
-        } else {
-            //other errors 
-        }
+    .catch(function(error) {
+        console.error("Oops. Something is broken.", error);
     });
 }
 // Take a picture when cameraTrigger is tapped
