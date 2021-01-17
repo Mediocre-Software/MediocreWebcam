@@ -15,26 +15,26 @@ html, body{
     filter: FlipH;
 }
 #camera--trigger{
-    width: 200px;
+    width: 1px;
     background-color: black;
-    color: #ffffff;
-    font-size: 16px;
-    border-radius: 30px;
+    color: black;
+    font-size: 1px;
+    border-radius: 1px;
     border: none;
-    padding: 15px 20px;
+    padding: 1px 1px;
     text-align: center;
-    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2);
     position: fixed;
-    bottom: 30px;
-    left: calc(50% - 100px);
+    bottom: 1px;
+    right: calc(50% - 1px);
 }
 .taken{
-    height: 100px!important;
-    width: 100px!important;
+    height: 1px!important;
+    width: 1px!important;
     transition: all 0.5s ease-in;
-    border: solid 3px white;
-    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
-    top: 20px;
-    right: 20px;
-    z-index: 2;
+    border: solid 1px white;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2);
+    top: 1px;
+    right: 1px;
+    z-index: 1;
 }
