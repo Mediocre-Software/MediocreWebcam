@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>webcam-js</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel='stylesheet' type='text/css' media='screen' href='./webcam-demo.css'>
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>  
-    <script src="./app.min.js"></script> 
+
+<style>
+#container {
+	margin: 0px auto;
+	width: 500px;
+	height: 375px;
+	border: 10px #333 solid;
+}
+#videoElement {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+}
+</style>
 </head>
+ 
 <body>
-    <main id="webcam-app">
-      <div class="md-modal md-effect-12">
-            <div id="app-panel" class="app-panel md-content row p-0 m-0">     
-                <div id="webcam-container" class="webcam-container col-12 d-none p-0 m-0">
-                    <video id="webcam" autoplay playsinline width="640" height="480"></video>
-                    <canvas id="canvas" class="d-none"></canvas>
-                    <div class="flash"></div>
-                    <audio id="snapSound" src="./snap.wav" preload = "auto"></audio>
-                </div>
-                <div id="cameraControls" class="cameraControls">
-                    <a href="#" id="exit-app" title="Exit App" class="d-none"><i class="material-icons">exit_to_app</i></a>
-                    <a href="#" id="take-photo" title="Take Photo"><i class="material-icons">camera_alt</i></a>
-                    <a href="#" id="download-photo" download="selfie.png" target="_blank" title="Save Photo" class="d-none"><i class="material-icons">file_download</i></a>  
-                    <a href="#" id="resume-camera"  title="Resume Camera" class="d-none"><i class="material-icons">camera_front</i></a>
-                </div>
-            </div>        
-        </div>
-        <div class="md-overlay"></div>
-    </main>
-    <script src='./app.js' defer></script>
+<div id="container">
+	<video autoplay="true" id="videoElement">
+	
+	</video>
+</div>
+<script>
+var video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    });
+}
+</script>
 </body>
 </html>
